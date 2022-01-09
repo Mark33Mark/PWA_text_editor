@@ -8,9 +8,17 @@ import { header } from "./header";
 export default class {
 
   constructor() {
-
-    let localData = localStorage.getItem( "content" );
-
+    
+    let localData;
+    
+    if ( ( localStorage.getItem( "content" ) === undefined ) || ( localStorage.getItem( "content" ) === null ) ) {
+      console.log("Initialising - nothing stored in localStorage or indexedDB");
+      localStorage.setItem( "content", header );
+      putDb( 1, localStorage.getItem( "content" ) );
+      localData = localStorage.getItem( "content" );
+    } else {
+    localData = localStorage.getItem( "content" );
+    }
 
     // check if CodeMirror is loaded
     if (typeof CodeMirror === "undefined") {
@@ -36,7 +44,7 @@ export default class {
     this.editor.setSize( null, "100%" );
 
     // When the editor is ready, set the value to whatever is 
-    // stored in indexeddb.
+    // stored in indexedDB.
     // Fall back to localStorage if nothing is stored in indexeddb, 
     // and if neither is available, set the value to header.
     
@@ -49,20 +57,21 @@ export default class {
         // carriage returns (i.e. no data)
         const regExp  = new RegExp(/.+/g);
 
-        if ( regExp.test( data[0].content ) ) {
-        
-          this.editor.setValue( data[0].content );
-        
-        } else if ( localStorage.getItem( "content" ) === null ){
-        
+        if ( ( !data[0].content ) || ( !localStorage.getItem( "content" ) ) ) {
+          console.log( "This was triggered: !data[0].content ");
           this.editor.setValue( header );
 
-        } else if ( !regExp.test( localStorage.getItem( "content" ) ) ) {
+        } else if ( regExp.test( data[0].content ) ) {
+          
+          console.log( "This was triggered: regExp.test(data[0].content ) ");
+          this.editor.setValue( data[0].content );
         
+        } else if ( !regExp.test( localStorage.getItem( "content" ) ) ) {
+          console.log( `This was triggered: !regExp.test( localStorage.getItem( "content" ) ) `);
           this.editor.setValue( header );
 
         } else {
-
+          console.log( "Got to the Last condition - sets local data");
           this.editor.setValue( localData );
         }
 
