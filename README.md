@@ -103,7 +103,7 @@ I've relied heavily on the online documentation for Code Mirror and IndexedDB fo
 
  The works in this repository are subject to:  
 
-[![GitHub](https://img.shields.io/github/license/Mark33Mark/PWA_text_editor)](doc/LICENSE.md)
+[![GitHub](https://img.shields.io/github/license/Mark33Mark/PWA_text_editor)](./assets/docs/license_MIT.md)
 
 ---
 
@@ -120,7 +120,7 @@ I've relied heavily on the online documentation for Code Mirror and IndexedDB fo
 
  If you would like to contribute, please comply with the Contributor Covenant Code of Conduct:  
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](doc/code_of_conduct.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](./assets/docs/code_of_conduct.md)
 
 ---
 
