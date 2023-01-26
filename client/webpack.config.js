@@ -21,8 +21,8 @@ module.exports = () => {
     plugins: [
 
       new HtmlWebpackPlugin({
-        template: "./public/index.html", 
-        favicon: "./public/favicon.ico",
+        template: "./index.html", 
+        favicon: "./favicon.ico",
       }),
 
       new InjectManifest({
@@ -43,7 +43,7 @@ module.exports = () => {
         crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
         icons: [
           {
-            src: path.resolve('./src/images/logo.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
