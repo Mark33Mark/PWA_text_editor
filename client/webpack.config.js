@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const { InjectManifest } = require('workbox-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = () => {
   return {
@@ -38,7 +38,7 @@ module.exports = () => {
       favicon: "./favicon.ico",
     }),
     
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
 
     new InjectManifest({
       swSrc: "./src-sw.js",
