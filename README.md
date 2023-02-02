@@ -25,7 +25,9 @@
 
 * This is JavaScript text editor that persists with or without an internet connection.  It uses Progressive Web Application (PWA) technology to do this.  A benefit of PWA is that the application can be installed as a free standing application without having to open your browser.  
 
-* Other technologies used are IndexedDB, Express, Node-js and CodeMirror.  The application is deployed on [Heroku: //jate-editor.herokuapp.com](https://jate-editor.herokuapp.com/).  
+* Other technologies used are IndexedDB, Express, Node-js and CodeMirror.  
+
+* The application was deployed on Heroku, however it is now moved to Netlify and refactored as a serverless app  [Netlify: //jate-editor.netlify.app](https://jate-editor.netlify.app).  
 
 **Why this project?**  
 
@@ -76,12 +78,41 @@ Once downloaded, you will need to run in the command line:
 
 This will install the required dependencies for the application to run.  Now to run the application type in the command line:
 
-```npm start```  
+``` cd client && npm run build && cd ..```
+
+This will build your `dist` folder.
+
+### <u>Express Server Implementation</u>
+
+```npm start:dev```  
 
 Once the server is up and running, the command line will have a link for you to click to open the application in your chosen browser:
 
 ```
 🆗  You are now listening on port: http://localhost:3001  🆗
+```
+
+Hold down control key and click on the link in your console to open the app.
+
+---  
+
+
+### <u>Netlify Serverless Implementation</u>
+
+```
+ntl dev
+```  
+
+Before running this command in your terminal, make sure you have Netlify CLI installed by typing in your terminal:
+```
+ntl -v  
+```
+```
+netlify -v  
+```
+If you don't receive a response with a version then install Netlify CLI with:
+```
+npm install -g netlify-cli
 ```
 
 ---
